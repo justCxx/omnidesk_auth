@@ -1,3 +1,4 @@
+[![Gem Version](https://badge.fury.io/rb/omnidesk_auth.svg)](https://badge.fury.io/rb/omnidesk_auth)
 [![Build Status](https://travis-ci.org/justCxx/omnidesk_auth.svg?branch=master)](https://travis-ci.org/justCxx/omnidesk_auth)
 [![Code Climate](https://codeclimate.com/github/justCxx/omnidesk_auth/badges/gpa.svg)](https://codeclimate.com/github/justCxx/omnidesk_auth)
 [![Test Coverage](https://codeclimate.com/github/justCxx/omnidesk_auth/badges/coverage.svg)](https://codeclimate.com/github/justCxx/omnidesk_auth/coverage)
