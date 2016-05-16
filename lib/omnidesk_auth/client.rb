@@ -13,15 +13,31 @@ module OmnideskAuth
       end
     end
 
+    # Text representation of the client, masking secret
+    # @return [String]
     def inspect
       super.tap do |inspected|
         inspected.gsub! secret, "#{secret[0..4]}..." if secret
       end
     end
 
+    # Return SSO auth url
+    # @param [Hash] options the options to create a message with.
+    # @option options [Fixnum] :iat The subject
+    # @option options [String] :email
+    # @option options [String] :name
+    # @option options [Fixnum] :external_id
+    # @option options [String] :company_name
+    # @option options [String] :company_position
+    # @option options [String] :remote_photo_url
+    # @option options [Fixnum] :exp
+    # @see https://support.omnidesk.ru/knowledge_base/item/54180
+    # @return [String]
     def sso_auth_url(options = {})
       url_from_response_body(access_url(options))
     end
+
+    protected
 
     def access_url(options = {})
       payload = jwt_payload(options)
@@ -59,8 +75,6 @@ module OmnideskAuth
          :remote_photo_url,
          :exp]
     end
-
-    private
 
     def url_from_response_body(url)
       response = Net::HTTP.get_response(url)

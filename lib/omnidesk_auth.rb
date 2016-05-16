@@ -7,6 +7,8 @@ module OmnideskAuth
   class << self
     include OmnideskAuth::Configurable
 
+    # Auth client based on configured options {Configurable}
+    # @return [OmnideskAuth::Client] auth client
     def client
       return @client if defined?(@client) && @client.same_options?(options)
       @client = OmnideskAuth::Client.new(options)
